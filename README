@@ -13,3 +13,11 @@ The library implents two functions, #parse and #generate.
     VCARD.generate({fn: {name: "Andrew Pace"}});
   Returns:
     VCARD.parse("BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Andrew Pace\r\nEND:VCARD");
+	
+
+##Generating js
+To generate js. First install coffee script
+$ npm install -g coffee-script
+
+Then run
+$ coffee -o lib -c src\Vcard.coffee
