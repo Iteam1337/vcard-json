@@ -463,7 +463,7 @@ VCARD = (() ->
     string += "FN"
     if json.params
       for k,v of json.params
-        if k.match(/value|language|x-\w+/i)
+        if k.match(/value|charset|language|x-\w+/i)
           string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
     string += ":#{json.name}\r\n"
     string
@@ -475,7 +475,7 @@ VCARD = (() ->
     string += "N"
     if json.params
       for k,v of json.params
-        if k.match(/value|language|x-\w+/i)
+        if k.match(/value|charset|language|x-\w+/i)
           string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
     string += if json.families then ":#{json.families.join(',')};" else ":;" 
     string += if json.givens then "#{json.givens.join(',')};" else ";" 
@@ -491,7 +491,7 @@ VCARD = (() ->
     string += "NICKNAME"
     if json.params
       for k,v of json.params
-        if k.match(/value|language|x-\w+/i)
+        if k.match(/value|charset|language|x-\w+/i)
           string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
     string += ":#{json.names.join(',')}\r\n"
     string

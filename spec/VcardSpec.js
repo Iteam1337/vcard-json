@@ -4,8 +4,8 @@ describe("Vcard", function() {
 
   beforeEach(function() {
     vcard = VCARD;  
-    fn = {"version" : "3.0", "fn": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "name" : "Andrew Pace"}};
-    fn_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.FN;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Andrew Pace\r\nEND:VCARD";
+    fn = {"version" : "3.0", "fn": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value", "charset": "utf-8"}, "name" : "Andrew Pace"}};
+    fn_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.FN;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=UTF-8:Andrew Pace\r\nEND:VCARD";
 
     n = {"version" : "3.0", "n": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "givens" : ["Andrew"], "middles" : ["Patrick"], "families" : ["Pace"], "prefixes" : ["Mr", "Dr"], "suffixes" : ["MD"]}};
     n_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.N;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Pace;Andrew;Patrick;Mr,Dr;MD\r\nEND:VCARD";
