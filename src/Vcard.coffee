@@ -155,7 +155,7 @@ VCARD = (() ->
     if json.params
       for k,v of json.params
         fn.params || fn.params = {}
-        fn.params[k] = v if k.match(/value|language|x-\w+/i)
+        fn.params[k] = v if k.match(/value|charset|language|x-\w+/i)
     fn.name = json.value
     fn
 
@@ -165,7 +165,7 @@ VCARD = (() ->
     if json.params
       for k,v of json.params
         n.params || n.params = {}
-        n.params[k] = v if k.match(/value|language|x-\w+/i)
+        n.params[k] = v if k.match(/value|charset|language|x-\w+/i)
     names = json.value.split(';')
 
     n.families = names[0].split(',') if names[0]
@@ -181,7 +181,7 @@ VCARD = (() ->
     if json.params
       for k,v of json.params
         nickname.params || nickname.params = {}
-        nickname.params[k] = v if k.match(/value|language|x-\w+/i)
+        nickname.params[k] = v if k.match(/value|charset|language|x-\w+/i)
     names = json.value.split(',')
     nickname.names = names
     nickname
