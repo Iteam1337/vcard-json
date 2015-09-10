@@ -20,4 +20,4 @@ To generate js. First install coffee script
 $ npm install -g coffee-script
 
 Then run
-$ coffee -o lib -c src\Vcard.coffee
+$ coffee -b -o lib -c src\Vcard.coffee
