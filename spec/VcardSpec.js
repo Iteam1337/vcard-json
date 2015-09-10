@@ -5,13 +5,13 @@ describe("Vcard", function() {
   beforeEach(function() {
     vcard = VCARD;  
     fn = {"version" : "3.0", "fn": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value", "charset": "utf-8"}, "name" : "Andrew Pace"}};
-    fn_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.FN;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=UTF-8:Andrew Pace\r\nEND:VCARD";
+    fn_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.FN;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=utf-8:Andrew Pace\r\nEND:VCARD";
 
-    n = {"version" : "3.0", "n": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "givens" : ["Andrew"], "middles" : ["Patrick"], "families" : ["Pace"], "prefixes" : ["Mr", "Dr"], "suffixes" : ["MD"]}};
-    n_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.N;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Pace;Andrew;Patrick;Mr,Dr;MD\r\nEND:VCARD";
+    n = {"version" : "3.0", "n": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value","charset": "utf-8"}, "givens" : ["Andrew"], "middles" : ["Patrick"], "families" : ["Pace"], "prefixes" : ["Mr", "Dr"], "suffixes" : ["MD"]}};
+    n_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.N;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=utf-8:Pace;Andrew;Patrick;Mr,Dr;MD\r\nEND:VCARD";
 
-    nickname = {"version" : "3.0", "nickname": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "names" : ["Andy", "Drew"]}};
-    nickname_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.NICKNAME;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Andy,Drew\r\nEND:VCARD";
+    nickname = {"version" : "3.0", "nickname": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value","charset": "utf-8"}, "names" : ["Andy", "Drew"]}};
+    nickname_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.NICKNAME;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=utf-8:Andy,Drew\r\nEND:VCARD";
 
     photo = {"version" : "3.0", "photos" : [{"group" : "item1", "params" : {"value" : "binary", "encoding" : "b", "type" : "jpg"}, "image" : "abcdefg=="}]};
     photo_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.PHOTO;VALUE=BINARY;ENCODING=B;TYPE=JPG:abcdefg==\r\nEND:VCARD";
