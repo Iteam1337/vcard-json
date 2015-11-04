@@ -354,7 +354,7 @@ VCARD = (() ->
     if json.params
       for k,v of json.params
         org.params || org.params = {}
-        org.params[k] = v if k.match(/value|language|x-\w+/i)
+        org.params[k] = v if k.match(/value|language|charset|x-\w+/i)
     res = json.value.split(';')
     org.name = res[0] if res[0]
     org.unit = res[1] if res[1]
@@ -666,8 +666,9 @@ VCARD = (() ->
     string += "ORG"
     if json.params
       for k,v of json.params
-        if k.match(/value|language|x-\w+/i)
-          string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
+        if k.match(/value|language|charset|x-\w+/i)
+          string += ";#{k.toUpperCase()}=#{if k.match(/charset/i) then v.toLowerCase() else v.toUpperCase()}" 
+          #string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
     string += ":#{json.name}"
     string += ";#{json.unit}" if json.unit
     string += ";#{json.unit2}" if json.unit2

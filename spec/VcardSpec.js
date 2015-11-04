@@ -55,8 +55,8 @@ describe("Vcard", function() {
     org = {"version" : "3.0", "orgs":[{"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "name" : "USC", "unit" : "Dermatology", "unit2" : "County"}]};
     org_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.ORG;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:USC;Dermatology;County\r\nEND:VCARD";
 	
-	org_simple = {"version" : "3.0", "orgs":[{"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "name" : "Räksmörgås"}]};
-    org_simple_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.ORG;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Räksmörgås\r\nEND:VCARD";
+	org_simple = {"version" : "3.0", "orgs":[{"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value", "charset": "utf-8"}, "name" : "Räksmörgås"}]};
+    org_simple_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.ORG;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE;CHARSET=utf-8:Räksmörgås\r\nEND:VCARD";
 
 
     categories = {"version" : "3.0", "categories": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "names" : ["Resident", "County"]}};
