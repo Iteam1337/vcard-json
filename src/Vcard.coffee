@@ -436,6 +436,16 @@ VCARD = (() ->
   parse_url = (json) ->
     url = {}
     url.group = json.group if json.group
+    for k,v of json.params
+      if k.match("type")
+        url.params || url.params = {}
+        url.params.types || url.params.types = []
+        if v.match(/,/)
+          arr = v.split(',')
+          for a in arr
+            url.params.types.push(a)
+        else
+          url.params.types.push(v)
     url.uri = json.value
     url
 
@@ -751,6 +761,10 @@ VCARD = (() ->
     if json.group
       string += "#{json.group}."
     string += "URL"
+    if json.params
+      for k,v of json.params
+        if k.match(/types/)
+          string += ";TYPE=#{v.join(',').toUpperCase()}"
     string += ":#{json.uri}\r\n"
     string
 

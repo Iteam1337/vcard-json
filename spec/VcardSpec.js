@@ -27,6 +27,9 @@ describe("Vcard", function() {
 
     tel = {"version" : "3.0", "tels": [{"group" : "item1", "params" : {"types" : ["home", "work"]}, "number" : "+1-323-243-7314"}]};
     tel_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.TEL;TYPE=HOME,WORK:+1-323-243-7314\r\nEND:VCARD";
+	
+	url = {"version" : "3.0", "urls" : [{"group" : "item1", "params" : {"types" : ["home", "work"]}, "uri" : "www.example.com"}]};
+    url_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.URL;TYPE=HOME,WORK:www.example.com\r\nEND:VCARD";
 
     email = {"version" : "3.0", "emails": [{"group" : "item1", "params" : {"types" : ["home", "work"]}, "address" : "andrewppace@gmail.com"}]};
     email_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.EMAIL;TYPE=HOME,WORK:andrewppace@gmail.com\r\nEND:VCARD";
@@ -73,9 +76,6 @@ describe("Vcard", function() {
     uid = {"version" : "3.0", "uid" : {"group" : "item1", "params" : {"type" : "uuid"}, "id" : "1234567890"}};
     uid_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.UID;TYPE=UUID:1234567890\r\nEND:VCARD";
     
-    url = {"version" : "3.0", "urls" : [{"group" : "item1", "uri" : "www.example.com"}]};
-    url_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.URL:www.example.com\r\nEND:VCARD";
-
     version = {"version" : "3.0"}
     version_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nEND:VCARD"
     
