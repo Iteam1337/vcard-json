@@ -54,6 +54,10 @@ describe("Vcard", function() {
 
     org = {"version" : "3.0", "orgs":[{"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "name" : "USC", "unit" : "Dermatology", "unit2" : "County"}]};
     org_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.ORG;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:USC;Dermatology;County\r\nEND:VCARD";
+	
+	org_simple = {"version" : "3.0", "orgs":[{"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "name" : "Räksmörgås"}]};
+    org_simple_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.ORG;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Räksmörgås\r\nEND:VCARD";
+
 
     categories = {"version" : "3.0", "categories": {"group" : "item1", "params" : {"value" : "text", "language" : "en", "x-param" : "value"}, "names" : ["Resident", "County"]}};
     categories_string = "BEGIN:VCARD\r\nVERSION:3.0\r\nitem1.CATEGORIES;VALUE=TEXT;LANGUAGE=EN;X-PARAM=VALUE:Resident,County\r\nEND:VCARD";
@@ -154,6 +158,10 @@ describe("Vcard", function() {
 
     it("creates an org line", function() {
       expect(vcard.generate(org)).toEqual(org_string);
+    });
+	
+	it("creates an org_simple line", function() {
+      expect(vcard.generate(org_simple)).toEqual(org_simple_string);
     });
 
     it("creates a categories line", function() {
@@ -265,6 +273,10 @@ describe("Vcard", function() {
     
     it("creates an org object", function() {
       expect(vcard.parse(org_string)).toEqual(org);
+    });
+	
+	it("creates an org simple object", function() {
+      expect(vcard.parse(org_simple_string)).toEqual(org_simple);
     });
     
     it("creates a categories object", function() {

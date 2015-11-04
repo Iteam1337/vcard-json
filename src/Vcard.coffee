@@ -669,8 +669,8 @@ VCARD = (() ->
         if k.match(/value|language|x-\w+/i)
           string += ";#{k.toUpperCase()}=#{v.toUpperCase()}"
     string += ":#{json.name}"
-    string += ";#{json.unit}"
-    string += ";#{json.unit2}"
+    string += ";#{json.unit}" if json.unit
+    string += ";#{json.unit2}" if json.unit2
     string += "\r\n"
     string
   
